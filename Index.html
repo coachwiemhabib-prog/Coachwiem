@@ -1,0 +1,123 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درب عقلك مع كوتش وئام - منصة التفوق والذكاء</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cairo & Tajawal -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&family=Tajawal:wght@500;700;900&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            yellow: '#FFC436',
+                            orange: '#FF69B4',
+                            teal: '#00A9FF',
+                            purple: '#892CDC',
+                            darkPurple: '#2C003E',
+                            green: '#00D26A',
+                            peach: '#FF9EAA'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        tajawal: ['Tajawal', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'playful': '0 8px 0 0 rgba(0,0,0,0.15)',
+                        'playful-sm': '0 4px 0 0 rgba(0,0,0,0.12)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #F8F9FA;
+            background-image: radial-gradient(#4ECDC4 1.5px, transparent 1.5px), radial-gradient(#FF6B6B 1.5px, #F8F9FA 1.5px);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .bounce-hover:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+        .bounce-hover:active {
+            transform: translateY(2px) scale(0.98);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .pulse-slow {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        /* Printable certificate styling */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printable-certificate, #printable-certificate * {
+                visibility: visible;
+            }
+            #printable-certificate {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 20px;
+                background: white !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between text-gray-800 antialiased overflow-x-hidden">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b-4 border-brand-yellow shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <!-- Logo & Title -->
+            <div class="flex items-center space-x-3 space-x-reverse cursor-pointer" onclick="switchTab('home')">
+                <div class="w-12 h-12 bg-gradient-to-tr from-purple-600 to-pink-500 rounded-2xl flex items-center justify-center text-2xl text-white shadow-playful-sm transform -rotate-3">
+                    🧠
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-black text-brand-darkPurple font-cairo leading-none">درب عقلك مع كوتش وئام</h1>
+                    <span class="text-xs text-brand-teal font-bold">منصة الذكاء وتنمية المهارات الدراسية 🌟</span>
+                </div>
+            </div>
+
+            <!-- Stars Counter & Sound Toggle -->
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="bg-amber-100 border-2 border-amber-400 px-4 py-1.5 rounded-full flex items-center gap-2 shadow-sm">
+                    <span class="text-2xl animate-bounce">⭐</span>
+                    <span id="star-count" class="font-black text-xl text-amber-700">0</span>
+                </div>
+
+                <button id="sound-toggle-btn" onclick="toggleSound()" class="w-11 h-11 bg-brand-teal text-white rounded-2xl flex it
